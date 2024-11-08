@@ -1,0 +1,14 @@
+
+<h1><%= @customer.full_name %></h1>
+
+<!-- Show the client's image if they have one -->
+<% if @customer.image.attached? %>
+  <%= image_tag @customer.image , width: 150, height: 150 %> <!-- This will display the associated image -->
+<% else %>
+   <%= image_tag 'user.png', width: 150, height: 150 %> <!-- This will display a message if you have no image -->
+<% end %>
+
+<!-- Show other customer details -->
+<p>Phone: <%= @customer.phone_number %></p>
+<p>Email: <%= @customer.email %></p>
+<p>Notes: <%= @customer.notes %></p>

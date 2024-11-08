@@ -1,0 +1,14 @@
+<div class="customer">
+  <h3><%= customer.full_name %></h3>
+  <p>Phone: <%= customer.phone_number %></p>
+  <p>Email: <%= customer.email %></p>
+  <p>Notes: <%= customer.notes %></p>
+
+  <% if customer.image.attached? %>
+    <div class="customer-image">
+      <%= image_tag customer.image, alt: "Customer Image", class: "customer-img" %>
+    </div>
+  <% else %>
+    <p>No image available</p>
+  <% end %>
+</div>
