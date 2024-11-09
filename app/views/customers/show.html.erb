@@ -1,14 +1,35 @@
+<div class="column is-half is-offset-one-quarter">
+  <div class="card" style="background-color: #6a4c9c;">
+    <% if @customer.image.attached? %>
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <%= image_tag @customer.image, alt: "Customer Image"%>
+        </figure>
+      </div>
+    <% else %>
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <%= image_tag 'user.png'%>
+        </figure>
+      </div>
+    <% end %>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <%= image_tag 'user.png'%>
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"><%= @customer.full_name %></p>
+          <p class="subtitle is-6">Email: <%= @customer.email %></p>
+          <p class="subtitle is-6">Phone: <%= @customer.phone_number %></p>
+        </div>
+      </div>
+      <div class="content">
+          <p class="content">Notes: <%= @customer.notes %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1><%= @customer.full_name %></h1>
-
-<!-- Show the client's image if they have one -->
-<% if @customer.image.attached? %>
-  <%= image_tag @customer.image , width: 150, height: 150 %> <!-- This will display the associated image -->
-<% else %>
-   <%= image_tag 'user.png', width: 150, height: 150 %> <!-- This will display a message if you have no image -->
-<% end %>
-
-<!-- Show other customer details -->
-<p>Phone: <%= @customer.phone_number %></p>
-<p>Email: <%= @customer.email %></p>
-<p>Notes: <%= @customer.notes %></p>

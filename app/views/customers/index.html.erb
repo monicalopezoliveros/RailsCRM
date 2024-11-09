@@ -1,4 +1,11 @@
-<h1>Customers</h1>
-<% @customers.each do |customer| %>
-  <%= render 'customer', customer: customer %>
-<% end %>
+<h2 class = "is-size-1"	>Customer List</h2>
+<div class="buttons">
+  <%= link_to "All Customers", root_path, class: "button is-link" %>
+  <%= link_to "Alphabetized Customers", customers_alphabetized_path, class: "button is-link" %>
+  <%= link_to "Customers Missing Email", customers_missing_email_path, class: "button is-link "%>
+</div>
+<div>
+  <% @customers.each do |customer| %>
+    <%= render partial: "customer", locals: { customer: customer } %>
+  <% end %>
+</div>

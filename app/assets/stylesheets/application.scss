@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ .card.custom-size {
+    max-width: 100px; /* Ajusta el tamaño a tu preferencia */
+    margin: 0 auto; /* Centra la tarjeta horizontalmente */
+  }

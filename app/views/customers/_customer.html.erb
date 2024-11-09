@@ -1,14 +1,34 @@
-<div class="customer">
-  <h3><%= customer.full_name %></h3>
-  <p>Phone: <%= customer.phone_number %></p>
-  <p>Email: <%= customer.email %></p>
-  <p>Notes: <%= customer.notes %></p>
-
-  <% if customer.image.attached? %>
-    <div class="customer-image">
-      <%= image_tag customer.image, alt: "Customer Image", class: "customer-img" %>
+<div class="column is-half is-offset-one-quarter">
+  <div class="card">
+    <% if customer.image.attached? %>
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <%= image_tag customer.image, alt: "Customer Image"%>
+        </figure>
+      </div>
+    <% else %>
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <%= image_tag 'user.png'%>
+        </figure>
+      </div>
+    <% end %>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <%= image_tag 'user.png'%>
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"><%= customer.full_name %></p>
+          <p class="subtitle is-6">Email: <%= customer.email %></p>
+          <p class="subtitle is-6">Phone: <%= customer.phone_number %></p>
+        </div>
+      </div>
+      <div class="content">
+          <p class="content">Notes: <%= customer.notes %></p>
+      </div>
     </div>
-  <% else %>
-    <p>No image available</p>
-  <% end %>
+  </div>
 </div>
